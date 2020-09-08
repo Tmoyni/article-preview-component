@@ -94,7 +94,7 @@ body {
   width: 55%;
   display: flex;
   flex-direction: column;
-  padding: 30px 30px 20px 40px;
+  padding: 30px 30px 20px 30px;
 
 }
 
@@ -104,7 +104,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 30px 30px 20px 40px;
+    padding: 30px 30px 20px 30px;
 
   }
 }
@@ -139,6 +139,8 @@ p {
 @media only screen and (max-width: 650px) {
   p {
     font-size: 13px;
+    margin-bottom: 40px;
+
   }
 }
 
@@ -201,7 +203,6 @@ p {
   cursor: pointer;
 }
 
-
 .article__share-btn-active {
   border-radius: 50%;
   width: 32px;
@@ -247,16 +248,28 @@ p {
 
 .social-share {
   position: absolute;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
   background-color: hsl(217, 19%, 35%);
   z-index: 10;
-  transform: translate(-102px, -75px);
-  
+  transform: translate(-42%, -140%);  
   display: none;
   justify-content: center;
   align-items: center;
   filter: drop-shadow(10px 10px 20px hsl(214, 17%, 80%));
+}
+
+.social-share::after {
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  content: "";
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid hsl(217, 19%, 35%);
+  transform: translate(0px, -10%);
+  z-index: 11;
+  top: 100%;
 }
 
 @media only screen and (max-width: 920px) {
@@ -314,6 +327,8 @@ p {
 
 .icons {
   transform: translateY(2px);
+  z-index: 20;
+
 }
 
 @media only screen and (max-width: 920px) {
@@ -352,13 +367,12 @@ p {
   margin: 0px;
 }
 
-.triangle {
+/* .triangle {
   position: absolute;
   width: 0; 
   height: 0; 
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-top: 15px solid hsl(217, 19%, 35%);
-  transform: translate(0px, 30px);
-
-}
+  transform: translate(0px, 35px);
+} */
