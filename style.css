@@ -7,6 +7,14 @@ html {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .attribution { 
   font-size: 12px; 
   text-align: center; 
@@ -22,7 +30,7 @@ html {
 
 body {
   background-color: hsl(210, 46%, 95%);
-  height: 100vh; 
+  min-height: 100vh; 
 
   display: flex;
   flex-direction: column;
@@ -33,7 +41,6 @@ body {
 .container {
   background-color: white;
   max-width: 800px;
-  height: auto;
   border-radius: 10px;
   margin: 25px;
 
@@ -43,36 +50,28 @@ body {
   box-shadow: 10px 10px 30px hsl(214, 17%, 90%);
 }
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 650px) {
   .container {
     flex-direction: column;
+    overflow: hidden;
   }
 }
 
-.article {
-  padding: 30px 30px 20px 40px;
-  width: 55%
-}
-
-@media only screen and (max-width: 450px) {
-  .article {
-    padding: 40px 30px 20px 30px;
-    width: auto;  }
-}
-
 .article-image-container {
+  border-radius: 10px 0 0 10px;
   width: 45%;
-  height: 300px;
   overflow: hidden;
 }
 
+
 @media only screen and (max-width: 920px) {
   .article-image-container {
+    border-radius: 0;
     height: auto;
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .article-image-container {
     width: 100%;
     height: 200px;
@@ -80,12 +79,33 @@ body {
 }
 
 .article-image {
-  width: 130%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .article-image {
     width: 100%;
+  }
+}
+
+.article {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 20px 40px;
+
+}
+
+@media only screen and (max-width: 650px) {
+  .article {
+    width: auto;  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 20px 40px;
+
   }
 }
 
@@ -96,9 +116,10 @@ h2 {
   margin-bottom: 15px;
   color:hsl(217, 19%, 35%);
   letter-spacing: 0.02em;
+
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   h2 {
     font-size: 16px;
   }
@@ -115,17 +136,21 @@ p {
 }
 
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   p {
     font-size: 13px;
-    margin-bottom: 30px
   }
 }
 
 .article__user {
   display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
 
+.user-container {
+  display: flex;
+}
 
 .user-image {
   border-radius: 50%;
@@ -133,7 +158,6 @@ p {
   height: 40px;
   overflow: hidden;
 }
-
 
 .user__details {
   margin-left: 15px;
@@ -149,7 +173,7 @@ p {
   margin-bottom: 2px;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .user-name {
     font-size: 13px;
   }
@@ -167,18 +191,14 @@ p {
   border-radius: 50%;
   width: 34px;
   height: 34px;
-  background-color: hsl(210, 46%, 95%);
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: center;
-  margin-right: 10px;
-}
 
-@media only screen and (max-width: 450px) {
-  .article__share-btn {
-    margin-right: 0px;
-  }
+  background-color: hsl(210, 46%, 95%);
+
+  cursor: pointer;
 }
 
 
@@ -190,14 +210,16 @@ p {
   align-items: center;
   justify-content: center;
   align-self: center;
-  margin-right: 10px;
+
   background-color: hsl(214, 17%, 51%);
   border: solid 2px hsl(214, 17%, 51%);
+
+  cursor: pointer;
+
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .article__share-btn-active {
-    margin-right: 0px;
     z-index: 15;
   }
 }
@@ -212,53 +234,56 @@ p {
   fill: white;
 }
 
-.social {
-  display: none;
-  position: absolute;
-  transform: translate(0px, -70px);
+.social-container {
+  display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 650px) {
+  .social-container {
+    flex-direction: row;
+  }
+}
+
+.social-share {
+  position: absolute;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: hsl(217, 19%, 35%);
+  z-index: 10;
+  transform: translate(-102px, -75px);
+  
+  display: none;
+  justify-content: center;
   align-items: center;
   filter: drop-shadow(10px 10px 20px hsl(214, 17%, 80%));
 }
 
 @media only screen and (max-width: 920px) {
-  .social {
-    transform: translate(0px, -104px);
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .social {
-    transform: translate(0px, 0px);
-    flex-direction: row;
-  }
-}
-
-.social-container {
-  padding: 15px 30px 15px 30px;
-  border-radius: 12px;
-  background-color: hsl(217, 19%, 35%);
-  z-index: 10;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media only screen and (max-width: 920px) {
-  .social-container {
+  .social-share {
     flex-direction: column;
     padding: 15px;
   }
 }
 
-@media only screen and (max-width: 450px) {
-  .social-container {
-    border-radius: 0px;
+@media only screen and (max-width: 650px) {
+  .social-share {
+    position: absolute;
     padding: 15px 30px 15px 30px;
+    border-radius: 0px;
+    background-color: hsl(217, 19%, 35%);
+    z-index: 10;
+    width: -webkit-fill-available;
     height: 50px;
+    bottom: 0;
+    left: 0;
+    transform: translate(0px);
+
     flex-direction: row;
-    justify-content: left;
+    display: none;
+    filter: none;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
@@ -270,6 +295,7 @@ p {
   letter-spacing: 4px;
   color: hsl(212, 23%, 69%);
   margin-right: 20px;
+
 }
 
 @media only screen and (max-width: 920px) {
@@ -279,7 +305,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .share {
     margin-right: 20px;
     margin-bottom: 0;
@@ -297,8 +323,9 @@ p {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .icons {
+    display: flex;
     flex-direction: row;
   }
 }
@@ -314,9 +341,10 @@ p {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .icon {
     margin-right: 12px;
+    margin-bottom: 0px;
   }
 }
 
@@ -325,10 +353,12 @@ p {
 }
 
 .triangle {
+  position: absolute;
   width: 0; 
   height: 0; 
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  
   border-top: 15px solid hsl(217, 19%, 35%);
+  transform: translate(0px, 30px);
+
 }
