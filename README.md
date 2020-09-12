@@ -1,4 +1,4 @@
-# Article Preview Component by Frontend Mentor
+# Article Preview Component from Frontend Mentor
 Coded by Triona Moynihan
 * HTML
 * SASS
