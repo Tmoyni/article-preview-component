@@ -1,8 +1,8 @@
 # Article Preview Component from Frontend Mentor
 Coded by Triona Moynihan
 * HTML
-* SASS
 * CSS
+* Vanilla Javascript
 
 ## Frontend Mentor - Article preview component
 
